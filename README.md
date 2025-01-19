@@ -10,10 +10,10 @@
 
 # Установка для Firefox:
 
-1. Скачать папку Firefox в релизах
+1. Скачать firefox.xpi 
 2. Зайти в Расширения, нажать на шестеренку, выбрать Debug Add-ons
 3. Выбрать Load Temporaly Add-ons
-4. Выбрать manifest.json в папке Firefox
+4. Выбрать firefox.xpi 
 
 
 # Примечания:
