@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title></title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      width: 400px;
+      padding: 10px;
+      margin: 0;
+      box-sizing: border-box;
+    }
+    h3 {
+      margin: 0 0 10px;
+    }
+    .scrollable-text {
+      height: 400px;
+      overflow-y: auto;
+      border: 1px solid #ccc;
+      padding: 10px;
+      white-space: pre-wrap;
+      background-color: #f9f9f9;
+      opacity: 0;
+      transition: opacity 1s ease-in-out;
+    }
+    .loading::before {
+      content: '';
+      display: inline-block;
+      width: 32px;
+      height: 32px;
+      margin-right: 5px;
+      background-color: #000;
+      border-radius: 50%;
+      animation: loading 1.5s infinite ease-in-out both;
+    }
+    .loading::after {
+      content: '';
+      display: inline-block;
+      width: 32px;
+      height: 32px;
+      margin-right: 5px;
+      background-color: #000;
+      border-radius: 50%;
+      animation: loading 1.5s infinite ease-in-out both;
+      animation-delay: -0.75s;
+    }
+    @keyframes loading {
+      0%, 100% {
+        transform: scale(0);
+      }
+      50% {
+        transform: scale(1);
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="loading" id="loadingIndicator"></div>
+
+  <div class="scrollable-text" id="extractedText"></div>
+
+  <script src="main.js"></script>
+</body>
+</html>
+
