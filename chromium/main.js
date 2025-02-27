@@ -1,6 +1,6 @@
 document.getElementById('loadingIndicator').classList.add('loading');
 
-//parsing
+// parsing
 chrome.tabs.query({ active: true, currentWindow: true }, (tabs) => {
   const activeTab = tabs[0];
   
@@ -8,7 +8,7 @@ chrome.tabs.query({ active: true, currentWindow: true }, (tabs) => {
     target: { tabId: activeTab.id },
     func: () => {
       let bodyText = document.body.innerText;
-      console.log('Extracted text:', bodyText);
+      console.log('text:', bodyText);
       return bodyText;
     }
   }, (results) => {
@@ -17,7 +17,7 @@ chrome.tabs.query({ active: true, currentWindow: true }, (tabs) => {
       document.getElementById('loadingIndicator').textContent = 'Ошибка';
       return;
     }
-
+    // api
     if (results && results[0] && results[0].result) {
       const inputText = results[0].result;
 

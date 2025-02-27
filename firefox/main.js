@@ -1,6 +1,6 @@
 document.getElementById('loadingIndicator').classList.add('loading');
 
-// Parsing
+// parsing
 browser.tabs.query({ active: true, currentWindow: true }).then((tabs) => {
   const activeTab = tabs[0];
   browser.tabs.executeScript(activeTab.id, {
@@ -11,7 +11,7 @@ browser.tabs.query({ active: true, currentWindow: true }).then((tabs) => {
       })();
     `,
   }).then((results) => {
-    // API call
+    // api
     if (results && results[0]) {
       async function generateContent(inputText) {
         const url = 'https://smallsitetext.pythonanywhere.com//generate';
@@ -31,7 +31,7 @@ browser.tabs.query({ active: true, currentWindow: true }).then((tabs) => {
           const data = await response.json();
           return data.generated_text;
         } catch (error) {
-          console.error('Error calling the API:', error);
+          console.error('err:', error);
           return null;
         }
       }
@@ -40,10 +40,10 @@ browser.tabs.query({ active: true, currentWindow: true }).then((tabs) => {
         .then(content => {
           if (content) {
             console.log('Ответ:', content);
-            document.getElementById('loadingIndicator').remove(); // Remove loading indicator
+            document.getElementById('loadingIndicator').remove();
             const extractedTextDiv = document.getElementById('extractedText');
             extractedTextDiv.textContent = content;
-            extractedTextDiv.style.opacity = 1; // Fade in the text
+            extractedTextDiv.style.opacity = 1;
           }
         });
     } else {
